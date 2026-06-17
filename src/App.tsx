@@ -163,6 +163,35 @@ export default function App() {
           }}
         />
       ))}
+
+      <AnimatePresence>
+        {isThermalStress && (
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            className="absolute top-4 right-4 z-50 bg-red-950/80 border border-red-500 p-4 rounded-xl shadow-lg shadow-red-500/20 backdrop-blur-md pointer-events-auto"
+          >
+            <div className="flex items-center gap-3">
+              <AlertTriangle className="text-red-500 h-6 w-6 animate-pulse" />
+              <div>
+                <h3 className="text-red-400 font-bold text-sm">Thermal Stress Detected</h3>
+                <p className="text-red-300 text-xs mt-1">CPU Temperature: {telemetry.cpuTemp}°C</p>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                updateTelemetry({ cpuTemp: 45, cpuLoad: 30 });
+                updateConfig({ mode: "normal", frameRateTarget: "60", systemBreathInterval: 4000 });
+              }}
+              className="mt-3 w-full bg-red-600/20 hover:bg-red-500 hover:text-stone-900 border border-red-500/50 text-red-400 text-xs font-bold py-1.5 rounded transition cursor-pointer"
+            >
+              INITIATE ENGINE COOLING
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <CortexBackground telemetry={telemetry} config={config} />
 
       <AnimatePresence mode="wait">

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AppItem, PulseType, MaterialType } from "../types";
 import { Orbit, Compass, RefreshCw, Layers, Star, Hexagon } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -27,6 +27,22 @@ export default function AppDrawer({ apps, predictedApps, onLaunchApp }: AppDrawe
     }, 30);
     return () => clearInterval(interval);
   }, [autoRotate]);
+
+  const [pointer, setPointer] = useState({ x: -1000, y: -1000 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMove = (e: PointerEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      // Calculate pointer relative to the center of the container
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      setPointer({ x, y });
+    };
+    window.addEventListener("pointermove", handleMove);
+    return () => window.removeEventListener("pointermove", handleMove);
+  }, []);
 
   // Translate base material into elegant inline glassmorphic or glowing styles
   const getMaterialStyle = (material: MaterialType, dominantColor: string, pulseType: PulseType) => {
@@ -93,7 +109,7 @@ export default function AppDrawer({ apps, predictedApps, onLaunchApp }: AppDrawe
   };
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-stone-200 font-mono pointer-events-none">
+    <div ref={containerRef} className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-stone-200 font-mono pointer-events-none">
       
       {/* Drawer Mode Controller Bar */}
       <div className="w-full max-w-lg mb-4 bg-stone-900/60 border border-stone-800/80 p-2.5 rounded-full flex justify-between items-center pointer-events-auto backdrop-blur-md z-30 shadow-xl">
@@ -168,11 +184,14 @@ export default function AppDrawer({ apps, predictedApps, onLaunchApp }: AppDrawe
               const x = Math.cos(totalAngle) * radius;
               const y = Math.sin(totalAngle) * radius;
 
+              const dist = Math.sqrt(Math.pow(pointer.x - x, 2) + Math.pow(pointer.y - y, 2));
+              const proximityScale = dist < 120 ? 1 + (120 - dist) / 120 * 0.25 : 1;
+
               return (
                 <motion.div
                   key={app.id}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: 1, scale: proximityScale }}
                   transition={{ delay: index * 0.05, duration: 0.5, type: "spring" }}
                   style={{
                     transform: `translate(${x}px, ${y}px)`,
@@ -255,11 +274,14 @@ export default function AppDrawer({ apps, predictedApps, onLaunchApp }: AppDrawe
               ];
               const pos = positions[index % positions.length];
 
+              const dist = Math.sqrt(Math.pow(pointer.x - pos.x, 2) + Math.pow(pointer.y - pos.y, 2));
+              const proximityScale = dist < 120 ? 1 + (120 - dist) / 120 * 0.25 : 1;
+
               return (
                 <motion.div
                   key={app.id}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: 1, scale: proximityScale }}
                   transition={{ delay: index * 0.05, duration: 0.5, type: "spring" }}
                   style={{
                     transform: `translate(${pos.x}px, ${pos.y}px)`,

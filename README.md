@@ -1,20 +1,119 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <img src="https://via.placeholder.com/150/1c1917/22d3ee?text=GemiLeith" alt="GemiLeith OS Logo" width="150" height="150" style="border-radius: 20%;" />
+  <h1>🌟 GemiLeith OS</h1>
+  <p><strong>The Cyber-Lion: An Organic, Breathing OS Experience.</strong></p>
+
+  <p>
+    <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+    <img alt="Platform" src="https://img.shields.io/badge/Platform-Web%20OS-brightgreen.svg" />
+  </p>
 </div>
 
-# Run and deploy your AI Studio app
+<br />
 
-This contains everything you need to run your app locally.
+## 📖 نظرة عامة (Overview)
 
-View your app in AI Studio: https://ai.studio/apps/04d4fb3a-114f-45e7-a67f-634bca4a4eeb
+**GemiLeith** ليس مجرد واجهة مستخدم (UI)؛ بل هو **كيان رقمي يتنفس**. هو نظام يدمج الفلسفة البصرية مع الكفاءة المعمارية ليخلق تجربة عضوية متكاملة. كلمة **Gemi** ترمز إلى المرونة والذكاء التوليدي (Gemini)، بينما **Leith** (ليث) تعبر عن الحزم الهندسي، السرعة، والقطع الصارم للأكواد العقيمة. 
 
-## Run Locally
+إنها واجهة رقمية حية تقرأ نواياك، وتتنفس مع الجهاز، وتتفاعل مع البيئة المحيطة.
 
-**Prerequisites:**  Node.js
+---
 
+## 🚀 الميزات الأساسية (Core Features)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 🧠 القشرة العصبية (Cortex System & Telemetry)
+خوارزمية خلفية تقرأ باستمرار حالة العتاد (مستوى البطارية، درجة الحرارة، ضغط اللمس).
+- **وضع الراحة**: زيادة الحيوية وتشبع الألوان.
+- **وضع الجهد الحراري (Thermal Stress)**: عندما تتجاوز الحرارة 80 درجة، ينتقل النظام بصريًا إلى الألوان الدافئة المحذرة للحفاظ على التنبيه اللاشعوري.
+
+### 🌬️ محرك التنفس الشامل (Breathing Engine)
+ينبض النظام بدورة جيبية بمدة (4000ms). تتنفس الشاشة كرئة رقمية، حيث تتغير الإضاءة والظلال بشفافية ونعومة في كل مكان وفي محرك الجسيمات الكونية (Cosmic particles).
+
+### 🧿 الاستجابة السائلة (Liquid Response)
+لمساتك لا تولد تأثيرًا جامدًا، بل موجات سائلة جزيئية، تتحكم بها حسب الضغط:
+- موجة كونية متموجة للضغط الخفيف.
+- توهج تفاعلي متفجر للضغط العالي.
+
+### 🔮 المحرك التنبؤي (Intent Engine)
+يتعلم منك ليتوقع ما تحتاجه قبل أن تلمس الشاشة. يستخدم الذكاء التوليدي للتعبير عن الحالة، وتوقع التطبيقات التي ستفتحها قريبًا مع إعطائها "توهج الهوية" (Essence Glow).
+
+### 🎙️ قناة الصوت الحية (Neural Live Voice)
+تغطية شاملة لدمج **Gemini Live API**؛ تواصل مباشر وثنائي الاتجاه لتبادل البيانات الصوتية في الزمن الفعلي.
+
+### ⚔️ حالة المحارب (Warrior Mode)
+عند الألعاب أو المهام الثقيلة، يتحول الجو العام للنظام لحالة مكثفة تطفئ المشتتات وتعطي الأولوية القصوى للأداء والإطارات.
+
+---
+
+## 🛠️ البنية التقنية (Architecture)
+
+- **Vite & React 18+**: أداء لا يُضاهى وواجهات فائقة السرعة.
+- **Tailwind CSS**: تصميم ذري (Atomic Design) وتجاوب تام.
+- **Motion (Framer Motion)**: انتقال سينمائي ومحاكاة القوانين الفيزيائية.
+- **HTML5 Canvas**: محرك توليد الجسيمات والخلفية التفاعلية الفرانكتالية بدقة عرض `120fps`.
+- **WebSockets / AudioContext**: لدعم تيار الاتصال الصوتي المباشر مع الذكاء الاصطناعي.
+
+---
+
+## 📂 هيكل المشروع (Project Structure)
+
+```text
+├── src/
+│   ├── components/         # المكونات الهندسية للنظام
+│   │   ├── CortexBackground.tsx # الخلفية الحية والجسيمات
+│   │   ├── AppDrawer.tsx        # درج التطبيقات الكوني
+│   │   ├── ExplorerAI.tsx       # واجهة الذكاء الاصطناعي والـ Live Voice
+│   │   ├── PrivacyVault.tsx     # خزنة الخصوصية
+│   │   └── ...
+│   ├── App.tsx             # نواة العمليات ونظام الحالة
+│   ├── index.css           # التصميم المخصص والإيقاع البصري
+│   ├── types.ts            # الهياكل البيانية والأنماط
+│   └── main.tsx            # نقطة الإقلاع (Bootloader)
+├── server.ts               # محرك الـ Backend والتحكم بالـ APIs
+├── .env.example            # المتغيرات البيئية (Gemini Keys)
+└── package.json            # الاعتمادات ومحركات التشغيل
+```
+
+---
+
+## 🔮 فلسفة الأنميشن (Kinetic Integration)
+
+لغة الحركة في GemiLeith تعتمد على حالات واضحة:
+1. **حالة الكمون (AOD):** توهج داخلي خافت وساعة محفورة تتنفس.
+2. **حالة الترقب (Lock Screen):** ألوان مهدئة، وعناصر في انتظار البصمة.
+3. **حالة الانفجار (Main OS):** أنميشن بانورامي لحركة الأيقونات الكونية والموجات الطاقية.
+
+---
+
+## ⚙️ التثبيت والتشغيل (Getting Started)
+
+1. **استنساخ المستودع:**
+   ```bash
+   git clone git@github.com:elleithysaif-hub/Gemileith.git
+   cd Gemileith
+   ```
+
+2. **تثبيت الاعتمادات:**
+   ```bash
+   npm install
+   ```
+
+3. **إعداد المتغيرات البيئية:**
+   قم بنسخ ملف `.env.example` إلى `.env` وأضف مفاتيحك الخاصة:
+   ```bash
+   cp .env.example .env
+   # أضف مفتاح GEMINI_API_KEY داخل الملف
+   ```
+
+4. **تشغيل بيئة التطوير:**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+<div align="center">
+  <p><i>"نحن لا نبني مجرد لانشر؛ نحن ننحت كوناً رقمياً حياً يحترم عين المستخدم، يقرأ حالة جهازه، ويتفاعل مع نياته."</i></p>
+  <b>بُني بشغف وإتقان.</b>
+</div>

@@ -1,0 +1,6 @@
+{
+  "name": "GemiLeith OS",
+  "description": "An intelligent, responsive, cosmic operating system simulation featuring Cortex telemetry tuning, adaptive breathing animations, particle ripples, custom icon/widget forging, and native server-side Gemini intelligence and Live API audio support.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
